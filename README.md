@@ -1,6 +1,6 @@
 # 🧠 MCP Server: Local AI Tooling with Python
 
-This project sets up a lightweight Model Context Protocol (MCP) server using Python, enabling AI assistants like Claude to interact with local data files such as CSV and ParquetBy integrating with Claude for Desktop, you can perform tasks like summarizing datasets or retrieving specific information through natural language queries
+This project sets up a lightweight Model Context Protocol (MCP) server using Python, enabling AI assistants like Claude to interact with local data files such as CSV and Parquet By integrating with Claude for Desktop, you can perform tasks like summarizing datasets or retrieving specific information through natural language queries
 
 ## 🚀 Features
 
@@ -11,37 +11,61 @@ This project sets up a lightweight Model Context Protocol (MCP) server using Pyt
 
 ## 🛠️ Installation
 
-1. **Clone the Repository**:
+### 1. Clone the Repositor
 
-   ```bash
-   git clone https://github.com/yourusername/mcp-server.git
-   cd mcp-server
-   ``
-
-
-   ```
-
-2. **Set Up a Virtual Environment**:
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ``
+````bash
+git clone https://github.com/yourusername/mcp-server.git
+cd mcp-server
+``
 
 
-   ```
+### 2. Set Up the Environment Using `uv
 
-3. **Install Dependencies**:
+[uv](https://github.com/astral-sh/uv) is a fast Python package and project manager written in Rut It serves as a drop-in replacement for tools like `pip`, `pip-tools`, and `virtualenv`, offering significant speed improvements and a unified interfae.
 
-   ```bash
-   pip install mcp[cli] pandas pyarrow
-   ``
+#### Install `uv
 
-   ```
+You can install `uv` using one of the following methos:
+
+- **Using `curl` (macOS and Linux):**
+
+```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ``
+
+
+- **Using `pip`:**
+
+```bash
+  pip install uv
+  ``
+
+
+- **Using `pipx`:**
+
+```bash
+  pipx install uv
+  ``
+
+
+For more installation options and details, refer to the [official uv documentation](https://docs.astral.sh/uv).
+
+#### Create a Virtual Environment and Install Dependencie
+
+
+```bash
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install mcp[cli] pandas pyarrow
+``
+
+
+This will create a virtual environment and install the necessary dependencies using `u`.
 
 ## 📁 Project Structue
 
-````bash
+
+```bash
 mcp-server/
 ├── tools/
 │   ├── csv_reader.py
@@ -63,7 +87,7 @@ To integrate with Claude for Desktop, add the following configuration to your Cl
 {
   "mcpServers": {
     "mix_server": {
-      "command": "/absolute/path/to/venv/bin/python",
+      "command": "/absolute/path/to/.venv/bin/python",
       "args": ["/absolute/path/to/mix_server.py"]
     }
   }
